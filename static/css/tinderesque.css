@@ -1,0 +1,359 @@
+@keyframes yay {
+  from {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(40deg) translateY(-80px);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes yay {
+  from {
+    -webkit-transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: rotate(40deg) translateY(-80px);
+    opacity: 0;
+  }
+}
+
+@keyframes nope {
+  from {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(-40deg) translateY(-80px);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes nope {
+  from {
+    -webkit-transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: rotate(-40deg) translateY(-80px);
+    opacity: 0;
+  }
+}
+
+
+body {
+    font-family: helvetica, arial, sans-serif;
+    background: #333;
+    color: #ccc;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+header,
+section,
+footer {
+    display: block;
+    padding: 0.5em 1em;
+}
+
+header,
+footer {
+    background: #000;
+    background: linear-gradient(#111, #000);
+}
+
+a {
+    color: lime;
+}
+
+h1 {
+    color: #f8f8f8;
+    font-size: 24px;
+    font-weight: normal;
+    text-align: center;
+}
+
+footer {
+    background: transparent;
+    clear: both;
+    font-size: 10px;
+    text-align: center;
+    padding: 3em 0.5em 1em 0.5em;
+}
+
+.card {
+  font-size: 14px;
+  line-height: 200px;
+  text-align:center;
+  display: block;
+  -webkit-transform-origin: 50% 99%;
+  transform-origin: 50% 99%;
+  color: #000;
+  width: 350px;
+  height: 260px;
+  transition: 0.4s;
+  padding: 5px;
+  background: #fff;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
+}
+
+.cardcontainer {
+  padding: 10px;
+  text-align: center;
+  width: 360px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.list .cardlist {
+    position: relative;
+    margin: 0 0 40px 0;
+    height: 300px;
+    padding: 0;
+}
+
+.tinderesque .list .card {
+  display: none;
+}
+
+.tinderesque .list .current {
+  display: block;
+}
+
+.but-nope, .but-yay, .nopes, .yays {
+  display: none;
+}
+
+.tinderesque .but-nope, .tinderesque .but-yay,
+.tinderesque .nopes, .tinderesque .yays {
+  display: inline-block;
+}
+
+.cardcontainer button {
+  background: #0c0;
+  border: none;
+  color: #fff;
+  border-radius: 50% 50%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 .5em;
+  display: inline-block;
+}
+
+.cardcontainer button:focus {
+  outline: 0;
+  background: #0f0;
+}
+.cardcontainer .but-nope {
+  background: #c00;
+}
+.cardcontainer .but-nope:focus {
+  outline: 0;
+  background: #f00;
+}
+
+.tinderesque .cardcontainer.yes .card {
+  -webkit-animation: yay 0.7s ease-out;
+  animation: yay 0.7s ease-out;
+}
+.tinderesque .cardcontainer.nope .card {
+  -webkit-animation: nope 0.7s ease-out;
+  animation: nope 0.7s ease-out;
+}
+
+
+.tinderesque .list .card {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    outline: 1px solid transparent;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+}
+
+.tinderesque .list .current {
+    display: block;
+    z-index: 30;
+}
+
+.tinderesque .cardcontainer.yes .card {
+    -webkit-animation: none;
+    animation: none;
+}
+
+.tinderesque .cardcontainer.nope .card {
+    -webkit-animation: none;
+    animation: none;
+}
+
+.tinderesque .cardcontainer.yes .current {
+    -webkit-animation: yay 0.7s ease-out;
+    animation: yay 0.7s ease-out;
+}
+
+.tinderesque .cardcontainer.nope .current {
+    -webkit-animation: nope 0.7s ease-out;
+    animation: nope 0.7s ease-out;
+}
+
+.cardlist li {
+    z-index: 1;
+}
+
+.cardlist li:nth-child(0) {
+    z-index: 5;
+}
+
+.cardlist li:nth-child(1) {
+    z-index: 4;
+}
+
+.cardlist li:nth-child(2) {
+    z-index: 3;
+}
+
+.cardlist li:nth-child(even) {
+    transform: rotate(10deg);
+    top: 8px;
+    transition: 0.4s;
+}
+
+.cardlist li:nth-child(3n) {
+    transform: rotate(-8deg);
+    top: -8px;
+    transition: 0.4s;
+}
+
+.cardlist li:nth-child(5n) {
+    transform: rotate(7deg);
+    top: -13px;
+    transition: 0.4s;
+}
+
+.current {
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, .8);
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.cardcontainer button.but-nope,
+.cardcontainer button.but-yay {
+    z-index: 10;
+}
+
+.cardcontainer button.but-nope {
+    background: firebrick;
+}
+
+.cardcontainer button.but-yay {
+    background: seagreen;
+}
+
+.but-nope::after {
+    content: 'nope';
+    position: absolute;
+    top: -35px;
+    left: -150px;
+    font-size: 30px;
+    transform: rotate(-30deg);
+    background: firebrick;
+    padding: .2em .4em;
+    color: #fff;
+    display: block;
+    transition: 0.4s;
+    opacity: 0;
+}
+
+.but-nope:hover::after {
+    opacity: 1;
+    top: 100px;
+}
+
+.but-yay::after {
+    content: 'yep';
+    position: absolute;
+    top: -35px;
+    right: -150px;
+    font-size: 30px;
+    background: seagreen;
+    color: #fff;
+    padding: .2em .4em;
+    transform: rotate(30deg);
+    display: block;
+    transition: 0.4s;
+    opacity: 0;
+}
+
+.but-yay:hover::after {
+    opacity: 1;
+    top: 100px;
+}
+
+#results {
+    opacity: 0;
+    position: absolute;
+    top: -20000px;
+    transition: opacity 0.5s;
+    margin: 0;
+    padding: 0;
+}
+
+#results li {
+    width: 30%;
+    display: inline-block;
+    margin: 0;
+    padding: 0 0 5px 5px;
+    list-style: none;
+    transform: rotate(0);
+    top: 0;
+}
+
+#results.live {
+    top: 0;
+    position: relative;
+    opacity: 1;
+}
+
+#results img{
+    width: 100%;
+}
+
+.extrainfo,
+.hoverinfo {
+    opacity: 0;
+    position: absolute;
+    bottom: 1em;
+    left: .5em;
+    line-height: 1em;
+}
+
+.live .hoverinfo,
+.live. extrainfo {
+    opacity: 1;
+    position: relative;
+}
+
+.card:hover .hoverinfo {
+    color: #fff;
+    background: #000;
+    background: rgba(0, 0, 0, .7);
+    padding: .5em;
+    opacity: 1;
+    position: absolute;
+}
+
+#counter {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
