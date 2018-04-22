@@ -17,7 +17,7 @@ def main():
 
 @app.route('/login')
 def login():
-    connection = pymysql.connect(host="localhost",
+    connection = pymysql.connect(host="0.0.0.0",
                                         user="kochbar",
                                         password="bratwurstconfiture",
                                         db="kochbar",
