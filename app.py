@@ -11,9 +11,13 @@ app = Flask(__name__)
 
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def main():
     return render_template('index.html')
+
+@app.route('/hello', methods=['GET', 'POST'])
+def hello():
+    return render_template('greetings.html', email=request.form['email'], password=request.form['password'], password_confirmation=request.form['password_confirmation'])
 
 @app.route('/login')
 def login():
@@ -41,6 +45,9 @@ def login():
         r.decode("utf-8", "ignore")
         titleList.append(r)
     return render_template('tinder.html', result=convResult, title=titleList)
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True, host="0.0.0.0")
