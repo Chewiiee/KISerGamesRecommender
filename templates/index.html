@@ -8,6 +8,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="../static/js/register.js"></script>
+
+  var config = {
+	apiKey: 'AIzaSyBB-CQmtUci6JZ_dj_DYE3YZrWQWx1_Tzc',
+	authDomain: 'food-recommender-b73fb.firebaseapp.com',
+	databaseURL: 'https://food-recommender-b73fb.firebaseio.com',
+	projectId: 'food-recommender-b73fb',
+	storageBucket: 'food-recommender-b73fb.appspot.com',
+	messagingSenderId: '215165995772'
+  };
+  firebase.initializeApp(config);
+
   <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -94,6 +105,8 @@
             <div class="line r"></div>
           </div>
           <div class="error"></div>
+
+
           <div class="form loginBox">
             <form>
               <input id="email" class="form-control" type="text" placeholder="Email" name="email">

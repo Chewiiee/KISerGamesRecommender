@@ -1,14 +1,5 @@
-var config = {
-	apiKey: 'AIzaSyBB-CQmtUci6JZ_dj_DYE3YZrWQWx1_Tzc',
-	authDomain: 'food-recommender-b73fb.firebaseapp.com',
-	databaseURL: 'https://food-recommender-b73fb.firebaseio.com',
-	projectId: 'food-recommender-b73fb',
-	storageBucket: 'food-recommender-b73fb.appspot.com',
-	messagingSenderId: '215165995772'
-};
-firebase.initializeApp(config);
-
-function toggleSignIn() {
+function toggleSignIn(){
+    console.log("Hallo aus toggle Sign in!")
 	if (firebase.auth().currentUser) {
 		// [START signout]
 		firebase.auth().signOut();
