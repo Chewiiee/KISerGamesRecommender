@@ -42,14 +42,18 @@ function toggleSignIn() {
 				console.log(error);
 				// [END_EXCLUDE]
 			});
-		console.log("Hallo aus Sign In!");
+		firebase.auth().onAuthStateChanged(user => {
+			if (user) {
+				window.location = 'login'; //After successful login, user will be redirected to home.html
+			}
+		});
 		// [END authwithemail]
 	}
 }
 /**
  * Handles the sign up button press.
  */
-function handleSignUp(){
+function handleSignUp() {
 	var email = document.getElementById('email').value;
 	var password = document.getElementById('password').value;
 	if (email.length < 4) {
@@ -80,16 +84,3 @@ function handleSignUp(){
 		});
 	// [END createwithemail]
 }
-
-function saveLikedFoodToDatabase(food_url){
-    console.log("Daten Speichern!");
-    /*var user = firebase.auth().currentUser;
-    var userId;
-    userId = user.uid;
-    var database = firebase.database().ref("food-recommender-b73fb/" + userId);
-    database.push({
-        recipe_href = food_url
-    });*/
-}
-
-
