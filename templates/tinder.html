@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Food Recommender</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="static/js/slick/slick.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/js/slick/slick-theme.css"/>
+  <link rel="stylesheet" type="text/css" href="static/js/slick/slick.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+</head>
+
+<body class="tinder text-center" onload=" initTitle({{title}}, {{result}})">
+  <div class="container-fluid d-flex h-100 p-0 flex-column">
+    <header class="navbar navbar-light mb-auto">
+        <h3 class="masthead-brand">Food Recommender</h3>
+        <div id="menuToggle" class="flex-end offset-md-1-right">
+              <input type="checkbox"/>
+              <span></span>
+              <span></span>
+              <span></span>  
+              <ul id="menu">
+                <div id="slidecontainer">
+                  <p>Gesund</p>
+                  <input type="range" min="1" max="10" value="5" class="rangeslider">
+                  <p>Schmeckt</p>
+                  <input type="range" min="1" max="10" value="5" class="rangeslider">
+                  <p>Neu</p>
+                  <input type="range" min="1" max="10" value="5" class="rangeslider">
+                  <p>Einfach</p>
+                  <input type="range" min="1" max="10" value="5" class="rangeslider">
+                  <p>Süß</p>
+                  <input id="sweet" type="range" min="0" max="1" value="1" class="rangeslider js-filter">
+                </div>
+              </ul>
+            </div>
+    </header>
+       
+      <div class="paper-border animated bounceInUp"></div>
+      <main role="main" class="h-100 row-color animated bounceInUp">
+
+        <div class="row d-none row-color" id="row1">
+          <div class="col-md-12 d-flex justify-content-between no-padding offset-md-1-left">
+            <h4 class="offset-md-1"> Recommendations </h4>
+            
+          </div>
+        </div>
+        <div class="row row-color justify-content-center" id="row">
+          <div class="col-md-12 mb-5 mt-5">
+            <div> <h5 id="title"> {{title[0]}} </h5></div>
+          </div>
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-6">
+
+            <div class="cardcontainer list">
+              <ul class="cardlist" id="cardlist"></ul>
+              <button class="but-nope"><div style="font-size:2em; pointer-events: none;"><i class="fas fa-times" aria-hidden="true" style="pointer-events: none;"></i></div></button>
+              <button class="but-yay"><div style="font-size:1.8em; pointer-events: none;"><i class="fas fa-heart" aria-hidden="true" style="pointer-events: none;"></i></div></button>
+              <span id="counter">10</span>
+            </div>
+          </div>
+          <div class="col-md-3"></div>
+        </div>  
+    </main>
+
+    <script src="../static/js/tinderesque.js"></script>
+    <script>
+      function initTitle(title, result){
+        var titleArray = [];
+        var items = [];
+        for(var i = 0; i < title.length; i++){
+          titleArray.push(title[i]);
+          items.push(result[i]);
+        }
+
+        initNames(titleArray, items);
+      }
+    </script>
+  </body>
+  </html>

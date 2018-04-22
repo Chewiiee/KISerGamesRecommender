@@ -1,0 +1,42 @@
+#slidecontainer {
+	padding-left: 60px;
+	padding-right: 50px;
+}
+
+#slidecontainer p {
+	text-align: right;
+	color: white;
+}
+
+#slidecontainer .rangeslider {
+	-webkit-appearance: none;
+	position: relative;
+	width: 100%;
+	margin-right: 50px;
+	height: 25px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: 0.2s;
+	transition: opacity 0.2s;
+}
+
+.rangeslider:hover {
+	opacity: 1;
+}
+
+.rangeslider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	background: $other_color;
+	cursor: pointer;
+}
+
+.rangeslider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	background: $other_color;
+	cursor: pointer;
+}

@@ -1,0 +1,97 @@
+@import '_variables';
+@import '_animate';
+@import '_typo';
+
+html,
+body {
+	height: 100%;
+	background-attachment: fixed;
+	list-style-type: none;
+	font-family: 'Open Sans', sans-serif !important;
+	color: white;
+}
+
+$theme_clr: (
+	tinder: $text,
+	tinder_bg: $primary_color,
+	secondary: $secondary_color
+);
+
+body {
+	&.tinder {
+		color: map-get($theme_clr, tinder);
+		background: $gradient;
+		overflow-x: hidden;
+	}
+}
+
+.cover {
+	zoom: 140%;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-style: solid;
+	border-width: 2px;
+}
+
+.lead {
+	font-style: italic;
+}
+
+hr {
+	width: 83.33333%;
+	display: block;
+	border: 0;
+	border-top: 3px dashed $primary_color;
+	padding: 0;
+}
+
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.row-color {
+	background-color: $paper-color;
+}
+
+.offset-md-1-right {
+	margin-right: 8.333333% !important;
+}
+
+.paper-border {
+	background-image: url('../images/border-top.png');
+	repeat-x: 50% 0;
+	padding-top: 64px;
+	margin-top: 50px;
+	z-index: 10;
+}
+
+.slider-border {
+	background: $gradient;
+	border: 0px solid transparent;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.6), inset 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+.recommendations {
+	max-height: 250px;
+}
+
+.cards-custom {
+	height: auto;
+	display: flex;
+	margin-bottom: 30px;
+	max-height: 200px;
+	max-width: 300px;
+}
+
+#title {
+	height: 32px;
+}
+
+@import '_header';
+@import '_sidemenu';
+@import '_rangeslider';
+@import '_modal';
+@import '_slick';
+@import '_slideshow';
+@import '_tinderesque';
+@import '_mediaquerries';

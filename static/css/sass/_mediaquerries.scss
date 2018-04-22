@@ -1,0 +1,67 @@
+@media (max-width: 480px) {
+	.float-left {
+		float: none !important;
+	}
+	.float-right {
+		float: none !important;
+	}
+
+	.mt-5 {
+		margin-top: 0 !important;
+	}
+	.cardcontainer {
+		width: 300px;
+	}
+	.list .cardlist {
+		height: 200px;
+	}
+	img {
+		width: 200px;
+		height: 130px;
+	}
+	#menu {
+		width: 100%;
+	}
+
+	#slidecontainer {
+		padding: 0px 15px 0px 15px;
+	}
+
+	.recommendations {
+		max-height: 200px;
+	}
+	.slick-next {
+		right: 0 !important;
+	}
+
+	.slick-prev {
+		left: 0 !important;
+		z-index: 1;
+	}
+
+	.offset-md-1-right {
+		margin-right: 0 !important;
+	}
+
+	.masthead-brand {
+		margin-left: 0 !important;
+	}
+}
+
+@media (max-width: 770px) {
+	.no-padding {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.slick {
+		&.no-padding {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+	}
+
+	hr {
+		width: 96%;
+	}
+}
