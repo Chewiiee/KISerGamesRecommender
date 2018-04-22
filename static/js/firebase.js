@@ -8,6 +8,14 @@ var config = {
 };
 firebase.initializeApp(config);
 
+function FirebaseLoginInit(){
+firebase.auth().onAuthStateChanged(user => {
+			if (user) {
+				window.location = 'login'; //After successful login, user will be redirected to home.html
+			}
+		});
+}
+
 function toggleSignIn() {
 	if (firebase.auth().currentUser) {
 		// [START signout]
