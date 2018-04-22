@@ -112,6 +112,7 @@
   });
 
   document.body.addEventListener('deckempty', function(ev) {
+    console.log("Results:" + results);
     ev.detail.container.style.display = 'none';
     document.getElementById('title').innerHTML = '';
 
