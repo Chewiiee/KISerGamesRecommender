@@ -9,6 +9,7 @@ var config = {
 firebase.initializeApp(config);
 
 function toggleSignIn() {
+    console.log("Toggle Sign In!")
 	if (firebase.auth().currentUser) {
 		// [START signout]
 		firebase.auth().signOut();
@@ -160,6 +161,7 @@ function initApp() {
 	document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
 	document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
 }
+
 window.onload = function() {
 	initApp();
 };
