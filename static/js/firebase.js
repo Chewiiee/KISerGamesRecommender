@@ -80,6 +80,7 @@ function handleSignUp() {
 			// [END_EXCLUDE]
 		});
 	// [END createwithemail]
+	saveLikedFoodToDatabase("test");
 }
 /**
  * Sends an email verification to the user.
@@ -162,3 +163,14 @@ function initApp() {
 window.onload = function() {
 	initApp();
 };
+
+function saveLikedFoodToDatabase(food_url){
+    console.log("Daten Speichern!");
+    var user = firebase.auth().currentUser;
+    var userId;
+    userId = user.uid;
+    var database = firebase.database().ref("food-recommender-b73fb/" + userId);
+    database.push({
+        recipe_href = food_url
+    });
+}
