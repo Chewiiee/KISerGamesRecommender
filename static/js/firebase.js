@@ -13,7 +13,7 @@ function FirebaseLoginInit(){
         firebase.auth().onAuthStateChanged(user => {
 			if (user) {
 			    console.log("User automatisch eingeloggt!");
-				//window.location = 'login'; //After successful login, user will be redirected to home.html
+				window.location = 'login'; //After successful login, user will be redirected to home.html
 			}
 		});
 }
