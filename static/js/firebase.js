@@ -40,16 +40,17 @@ function toggleSignIn() {
 					alert(errorMessage);
 				}
 				console.log(error);
-				document.getElementById('quickstart-sign-in').disabled = false;
 				// [END_EXCLUDE]
 			});
 		// [END authwithemail]
 	}
-	document.getElementById('quickstart-sign-in').disabled = true;
 }
 /**
  * Handles the sign up button press.
  */
+<<<<<<< HEAD
+
+=======
 function handleSignUp() {
 	var email = document.getElementById('email1').value;
 	var password = document.getElementById('password1').value;
@@ -162,3 +163,4 @@ function initApp() {
 window.onload = function() {
 	initApp();
 };
+>>>>>>> origin/firebase-signup
