@@ -9,9 +9,11 @@ var config = {
 firebase.initializeApp(config);
 
 function FirebaseLoginInit(){
-firebase.auth().onAuthStateChanged(user => {
+        console.log("Firebase init Listener!");
+        firebase.auth().onAuthStateChanged(user => {
 			if (user) {
-				window.location = 'login'; //After successful login, user will be redirected to home.html
+			    console.log("User automatisch eingeloggt!");
+				//window.location = 'login'; //After successful login, user will be redirected to home.html
 			}
 		});
 }
