@@ -17,7 +17,7 @@ function firebaseLogoutInit(){
     console.log("Firebase init Logout Listener!")
     firebase.auth().onAuthStateChanged(user => {
 			if (user) {
-
+                 document.getElementById("username").innerHTML = firebase.auth().currentUser.email;
 			}else{
 			    console.log("User nicht eingeloggt!");
 			    window.location = '/'; //After successful logout, user will be redirected to home.html
