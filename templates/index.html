@@ -95,13 +95,12 @@
           </div>
           <div class="error"></div>
           <div class="form loginBox">
-              
-            <form method="post" action="/login" accept-charset="UTF-8">
+            <form>
               <input id="email" class="form-control" type="text" placeholder="Email" name="email">
               <p></p>
               <input id="password" class="form-control" type="password" placeholder="Password" name="password">
               <p></p>
-              <input class="btn btn-default btn-login" type="button" value="Login" href="login" onClick>
+              <input class="btn btn-default btn-login" type="button" value="Login" onclick="toggleSignIn()" href="login">
             </form>
           </div>
         </div>
@@ -118,7 +117,7 @@
             <p></p>
             <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
             <p></p>
-            <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
+            <input class="btn btn-default btn-register" type="button" value="Create account" name="commit" href="login">
           </form>
         </div>
       </div>
