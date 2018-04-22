@@ -14,8 +14,8 @@ function toggleSignIn() {
 		firebase.auth().signOut();
 		// [END signout]
 	} else {
-		var email = document.getElementById('email').value;
-		var password = document.getElementById('password').value;
+		var email = document.getElementById('email_login').value;
+		var password = document.getElementById('password_login').value;
 		if (email.length < 4) {
 			alert('Please enter an email address.');
 			return;
@@ -54,8 +54,8 @@ function toggleSignIn() {
  * Handles the sign up button press.
  */
 function handleSignUp() {
-	var email = document.getElementById('email').value;
-	var password = document.getElementById('password').value;
+	var email = document.getElementById('email_register').value;
+	var password = document.getElementById('password_register').value;
 	if (email.length < 4) {
 		alert('Please enter an email address.');
 		return;
@@ -82,5 +82,10 @@ function handleSignUp() {
 			console.log(error);
 			// [END_EXCLUDE]
 		});
+	firebase.auth().onAuthStateChanged(user => {
+		if (user) {
+			window.location = 'login'; //After successful login, user will be redirected to home.html
+		}
+	});
 	// [END createwithemail]
 }

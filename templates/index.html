@@ -96,9 +96,9 @@
           <div class="error"></div>
           <div class="form loginBox">
             <form>
-              <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+              <input id="email_login" class="form-control" type="text" placeholder="Email" name="email">
               <p></p>
-              <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+              <input id="password_login" class="form-control" type="password" placeholder="Password" name="password">
               <p></p>
               <input class="btn btn-default btn-login" type="button" value="Login" onclick="toggleSignIn()">
             </form>
@@ -110,14 +110,14 @@
       <div class="box">
         <div class="content registerBox" style="display:none;">
          <div class="form">
-          <form onsubmit="handleSignUp()">
-            <input id="email1" class="form-control" type="text" placeholder="Email" name="email">
+          <form>
+            <input id="email_register" class="form-control" type="text" placeholder="Email" name="email">
             <p></p>
-            <input id="password1" class="form-control" type="password" placeholder="Password" name="password">
+            <input id="password_register" class="form-control" type="password" placeholder="Password" name="password">
             <p></p>
             <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
             <p></p>
-            <input class="btn btn-default btn-register" type="button" value="Create account" name="commit">
+            <input class="btn btn-default btn-register" type="button" value="Create account" name="commit" onclick="handleSignUp()">
           </form>
         </div>
       </div>
