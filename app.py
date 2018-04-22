@@ -17,30 +17,33 @@ def main():
 
 @app.route('/login')
 def login():
-    connection = pymysql.connect(host="0.0.0.0",
-                                        user="kochbar",
-                                        password="bratwurstconfiture",
-                                        db="kochbar",
+    connection = pymysql.connect(host="127.0.0.1",
+                                        user="root",
+                                        password="",
+                                        db="essbar",
                                         charset='utf8mb4',
                                         cursorclass=pymysql.cursors.Cursor)
     with connection.cursor() as cursor:
-        sql = "SELECT img_href, title FROM kochbar_recipes WHERE kochbar_recipes.img_href  !='http://bilder.static-fra.de/kochbar/images/kb_default_kein_rezeptbild_120x80.jpg' ORDER BY RAND() LIMIT 10" 
+        sql = "SELECT img_href, title, recipe_href FROM kochbar_recipes WHERE kochbar_recipes.img_href  !='http://bilder.static-fra.de/kochbar/images/kb_default_kein_rezeptbild_120x80.jpg' ORDER BY RAND() LIMIT 10"
         cursor.execute(sql, )
         result = cursor.fetchall()
     connection.close()
-    convResult = list()
-    for r in result:
-    	r = str(r)
-    	r = re.sub("\(.{2}|'.*",'', r)
-    	convResult.append(r)
 
+    print(result[0])
+    print(result[0][0])
+
+    convResult = list()
     titleList = list()
-    for r in result:
-        r = str(r)
-        r = re.sub(".*u'|..$",'', r)
-        r.decode("utf-8", "ignore")
-        titleList.append(r)
-    return render_template('tinder.html', result=convResult, title=titleList)
+    href_list = list()
+
+    for r in range(0, len(result)):
+        convResult.append(result[r][0])
+        titleList.append(result[r][1])
+        href_list.append(result[r][2])
+
+    print(href_list)
+    return render_template('tinder.html', result=convResult, title=titleList, recipe_href=href_list)
+
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True, host="0.0.0.0")

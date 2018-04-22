@@ -1,13 +1,21 @@
-(function() {
   var animating = false;
   var all = 10;
   var results = [];
   var counter = document.querySelector('#counter');
   var recommendation = document.querySelector('#recommendation');
-  var nameArray;
+  var titleArray;
   var itemArray;
+  var hrefArray;
+  var hrefResults = [];
   var x = 1;
   var amount = 0;
+
+  function initTitle(title, result, recipe_hrefs){
+    titleArray = title;
+    itemArray = result;
+    hrefArray = recipe_hrefs;
+    initNames(titleArray, itemArray);
+  }
 
   function updateCounter() {
     --all;
@@ -28,6 +36,7 @@
         a = document.createElement('a');
       a.href = itemArray[i];
       a.target = '_blank';
+      a.id = hrefArray[i];
       li.classList.add('card');
       img.src = itemArray[i];
       a.appendChild(img);
@@ -98,6 +107,7 @@
   }
 
   document.body.addEventListener('yepcard', function(ev) {
+    hrefResults.push(ev.detail.card.childNodes[0].id);
     var el = document.createElement('li');
     var domString = ev.detail.card.innerHTML;
     el.innerHTML = domString;
@@ -111,14 +121,16 @@
     updateCounter();
   });
 
+
   document.body.addEventListener('deckempty', function(ev) {
-    console.log("Results:" + results);
+    for (i = 0; i < hrefResults.length; i++) {
+        saveLikeToDatabase(hrefResults[i]);
+    }
+
     ev.detail.container.style.display = 'none';
     document.getElementById('title').innerHTML = '';
-
+    console.log(hrefResults);
     document.getElementById('row1').classList.add('d-flex');
-
-    console.log(results[0].img);
     createRecommendations();
     $(document).ready(function() {
       $('.slick').slick({
@@ -236,4 +248,3 @@
     document.body.classList.add('tinderesque');
   });
   this.initNames = initNames;
-})();

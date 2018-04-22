@@ -17,12 +17,16 @@
   <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+
 </head>
 
-<body class="tinder text-center" onload=" initTitle({{title}}, {{result}})">
+<body class="tinder text-center" onload=" initTitle({{title}}, {{result}}, {{recipe_href}})">
   <div class="container-fluid d-flex h-100 p-0 flex-column">
     <header class="navbar navbar-light mb-auto">
         <h3 class="masthead-brand">Food Recommender</h3>
+        <h3 class="masthead-brand" id="username">Username</h3>
+        <button class="logout" onclick="logout()"><div style="font-size:1.8em; pointer-events: none;"><i class="fas fa-heart" aria-hidden="true" style="pointer-events: none;"></i></div></button>
         <div id="menuToggle" class="flex-end offset-md-1-right">
               <input type="checkbox"/>
               <span></span>
@@ -73,18 +77,21 @@
         </div>  
     </main>
 
-    <script src="../static/js/tinderesque.js"></script>
+    <script src = "../static/js/tinderesque.js"></script>
+    <script src = "../static/js/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
     <script>
-      function initTitle(title, result){
-        var titleArray = [];
-        var items = [];
-        for(var i = 0; i < title.length; i++){
-          titleArray.push(title[i]);
-          items.push(result[i]);
-        }
-
-        initNames(titleArray, items);
-      }
+      var config = {
+	  apiKey: 'AIzaSyBB-CQmtUci6JZ_dj_DYE3YZrWQWx1_Tzc',
+	  authDomain: 'food-recommender-b73fb.firebaseapp.com',
+	  databaseURL: 'https://food-recommender-b73fb.firebaseio.com',
+	  projectId: 'food-recommender-b73fb',
+	  storageBucket: 'food-recommender-b73fb.appspot.com',
+	  messagingSenderId: '215165995772'
+    };
+    firebase.initializeApp(config);
+    firebaseLogoutInit();
     </script>
+
   </body>
   </html>

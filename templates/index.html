@@ -22,8 +22,18 @@
   <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-functions.js"></script>
   <script src="../static/js/firebase.js"></script>
   <script>
-    FirebaseLoginInit();
+  var config = {
+	apiKey: 'AIzaSyBB-CQmtUci6JZ_dj_DYE3YZrWQWx1_Tzc',
+	authDomain: 'food-recommender-b73fb.firebaseapp.com',
+	databaseURL: 'https://food-recommender-b73fb.firebaseio.com',
+	projectId: 'food-recommender-b73fb',
+	storageBucket: 'food-recommender-b73fb.appspot.com',
+	messagingSenderId: '215165995772'
+  };
+  firebase.initializeApp(config);
+  firebaseLoginInit();
   </script>
+
 </head>
 
 <body class="index text-center">
